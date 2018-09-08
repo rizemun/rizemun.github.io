@@ -3,12 +3,33 @@ var ctx=canvas.getContext("2d");
 var dualImg=new Image();
 var vkLeft, vkRight,vkLink;
 
+var parallax_h; 
+var picElem1; 
+var parallax_speed = 10;
+
+var aA = "";
+var time = 0;
+var parallax_y;
+
+document.addEventListener("scroll",function(e){
+	let a = window.pageYOffset;
+	if (a<parallax_h){
+		parallax_y = a/parallax_speed;
+		picElem1.style.transform = "translate(0,-"+parallax_y+"px)";
+	}
+});
+
 dualImg.src="img/dualVK.png";
 dualImg.onload=function() {
     scene.init(400,100);
     vkLeft=new VkImage(dualImg,150,10,0);
     vkRight=new VkImage(dualImg,170,10,1);
     vkLink=new VkLink();
+	
+	picElem1 = document.getElementsByClassName("flex-start")[0];
+	parallax_h = picElem1.clientHeight;
+	parallax_y = 0;
+	
     gameLoop();
 };
 
@@ -84,8 +105,13 @@ var mouse={
 };
 
 canvas.addEventListener("mousemove",function(event){
-   mouse.x=event.clientX-canvas.offsetLeft;
-   mouse.y=event.clientY-canvas.offsetTop;
+	let offset = window.pageYOffset+window.pageYOffset/parallax_speed;
+	mouse.x=event.clientX-canvas.offsetLeft;
+	mouse.y=event.clientY-canvas.offsetTop+offset;
+   
+   console.log(mouse, vkLeft.y);
+   
+   
 });
 canvas.addEventListener("mouseout",function(){
     mouse.x=0;
@@ -99,10 +125,13 @@ canvas.addEventListener("click",function(){
 
 
 
+
 var gameLoop=function(){
 
     ctx.clearRect(0,0,scene.width,scene.height);
-    if((mouse.x>vkLeft.x)&&(mouse.x<vkRight.x+vkRight.sizeX)&&(mouse.y>vkLeft.y)&&(mouse.y<vkLeft.y+vkLeft.sizeY)) {
+	//console.log(parallax_y);
+	
+    if((mouse.x>vkLeft.x)&&(mouse.x<vkRight.x+vkRight.sizeX)&&(mouse.y>vkLeft.y )&&(mouse.y<vkLeft.y+vkLeft.sizeY)) {
         if(vkRight.x<320)vkRight.x++;
         if(vkLeft.x>0)vkLeft.x--;
 
@@ -121,21 +150,27 @@ var gameLoop=function(){
     }
 
 
-
-
-
-
-
-
-
-
-
+	
+	time += 1;
+	if (time == 60){
+		time = 0;
+	}
+	if(time%20===0){
+		if(aA == "◀▶◀▶◀▶◀▶◀▶"){
+			aA = "▶◀▶◀▶◀▶◀▶◀";
+		}
+		else{
+			aA = "◀▶◀▶◀▶◀▶◀▶"
+		}
+	}
+	document.title = aA;
+	
+	
 
     vkLink.draw(vkLeft.x+30,vkRight.x-vkLeft.x+10);
     vkLeft.draw(vkLeft.x, vkLeft.y);
     vkRight.draw(vkRight.x, vkRight.y);
     setTimeout(gameLoop,1000/60);
 };
-
 
 

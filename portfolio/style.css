@@ -37,7 +37,10 @@ html,body{
     background: url("img/img4.jpg") no-repeat center center fixed;
     border-bottom: 10px solid #302cff;
     align-items:center;
+	
     justify-content:center;
+	
+
 }
 
 .name{
@@ -49,7 +52,7 @@ html,body{
     height:100%;
     font-size:36px;
     text-align: center;
-    align-items:center;
+     align-items:center; 
     justify-content:center;
 }
 
@@ -57,12 +60,14 @@ html,body{
     display:flex;
     width:100%;
     font-size:36px;
-    align-items:center;
+     align-items:center; 
     justify-content:center;
 }
+
 .links a{
     color: rgb(222, 244, 230);
 }
+
 .whynot{
 
     height:100%;
@@ -72,6 +77,44 @@ html,body{
     align-items:center;
     justify-content:center;
 }
+
 #canvas{
     position:absolute;
 }
+
+.links_in{
+	height:200px;
+	width:300px;
+	
+	border: 1px solid white;
+}
+.a_link{
+	height:100px;
+	width:100px;
+	
+	
+	background-color:red;
+	
+	border-radius:30%;
+	border: 1px solid white;
+}
+.a_link a{
+	height: 100%;
+	width: 100%;
+	
+	border-radius:30%;
+	
+}
+.a_description{
+	height:100px;
+	width:100px;
+	
+	
+	border: 1px solid white;
+	
+	overflow:hidden;
+	
+}
+
+
+
