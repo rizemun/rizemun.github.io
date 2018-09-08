@@ -1,0 +1,77 @@
+@font-face {
+    font-family: MagistralBlackC;
+    src: /* local("MagistralBlackC") ,*/
+            url("fonts/MagistralBlackC.ttf") format("truetype");
+}
+
+html,body{
+    margin:0;
+    padding:0;
+	background-color: #161442;
+	min-height: 1800px;
+
+    font-family: MagistralBlackC;
+    color: rgb(222, 244, 230);
+    text-shadow: 1px 1px 1px black, 2px 3px 2px rgb(48, 69, 225);
+}
+
+.row{
+	margin: 100px 0;
+	height: 200px;
+	width: 100%;
+	background: url("img/img2.jpg") no-repeat center center fixed;
+
+    box-shadow: inset 0 -10px 10px -6px #161442,
+                inset 0 10px 10px -6px #161442;
+
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.flex-start{
+    display:flex;
+    height:100%;
+    width: 100%;
+    background: url("img/img4.jpg") no-repeat center center fixed;
+    border-bottom: 10px solid #302cff;
+    align-items:center;
+    justify-content:center;
+}
+
+.name{
+    font-size:48px;
+}
+
+.about{
+    display:flex;
+    height:100%;
+    font-size:36px;
+    text-align: center;
+    align-items:center;
+    justify-content:center;
+}
+
+.links{
+    display:flex;
+    width:100%;
+    font-size:36px;
+    align-items:center;
+    justify-content:center;
+}
+.links a{
+    color: rgb(222, 244, 230);
+}
+.whynot{
+
+    height:100%;
+    display:flex;
+    font-size:26px;
+
+    align-items:center;
+    justify-content:center;
+}
+#canvas{
+    position:absolute;
+}
