@@ -107,10 +107,7 @@ var mouse={
 canvas.addEventListener("mousemove",function(event){
 	let offset = window.pageYOffset+window.pageYOffset/parallax_speed;
 	mouse.x=event.clientX-canvas.offsetLeft;
-	mouse.y=event.clientY-canvas.offsetTop+offset;
-   
-   console.log(mouse, vkLeft.y);
-   
+	mouse.y=event.clientY-canvas.offsetTop+offset; 
    
 });
 canvas.addEventListener("mouseout",function(){
